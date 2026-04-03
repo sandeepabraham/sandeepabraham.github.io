@@ -537,18 +537,18 @@
       </div>
     </div>
     <div class="contact-right fade-up">
-      <form class="contact-form" action="https://formspree.io/f/mnjogldo" method="POST">
+      <form class="contact-form" action="https://formspree.io/f/mnjogldo" method="POST" enctype="application/x-www-form-urlencoded">
         <div class="form-field">
           <label>Name</label>
-          <input type="text" placeholder="Your name">
+          <input type="text" name="name" placeholder="Your name">
         </div>
         <div class="form-field">
           <label>Organization</label>
-          <input type="text" placeholder="Firm, company, or agency">
+          <input type="text" name="organization" placeholder="Firm, company, or agency">
         </div>
         <div class="form-field">
           <label>I'm reaching out as</label>
-          <select>
+          <select name="type">
             <option value="">Select one</option>
             <option>A law firm or AG office</option>
             <option>A crypto exchange or fintech</option>
@@ -561,7 +561,7 @@
         </div>
         <div class="form-field">
           <label>What are you working on?</label>
-          <textarea placeholder="Brief description of your situation or case — no sensitive details needed at this stage."></textarea>
+          <textarea name="message" placeholder="Brief description of your situation or case — no sensitive details needed at this stage."></textarea>
         </div>
         <button type="submit" class="form-submit">Send message →</button>
       </form>
