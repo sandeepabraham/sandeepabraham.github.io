@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandeep Abraham — Digital Threat Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0C0C0F; --bg2: #111115; --bg3: #18181E;
+    --border: #27272F; --border2: #35353F;
+    --text: #EDE8E0; --text2: #9B9690; --text3: #5A5855;
+    --gold: #C8A96E; --gold2: #E2C48A; --gold-dim: rgba(200,169,110,0.12);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Figtree', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; font-weight: 400; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(12,12,15,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+  nav.scrolled { border-color: var(--border); }
+  .nav-name { font-family: var(--serif); font-size: 18px; color: var(--text); letter-spacing: 0.01em; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta { background: var(--gold-dim); border: 1px solid rgba(200,169,110,0.3); color: var(--gold) !important; padding: 8px 18px; border-radius: 4px; }
+  .nav-cta:hover { background: rgba(200,169,110,0.2) !important; }
+  .nav-linkedin { color: var(--text3); transition: color 0.2s; display: flex; align-items: center; }
+  .nav-linkedin:hover { color: var(--gold) !important; }
+
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 100px 48px 80px; position: relative; overflow: hidden; }
+  @media (orientation: portrait) and (max-width: 900px) { .hero { justify-content: center; padding-top: 110px; } }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(200,169,110,0.04) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 60%, rgba(80,60,120,0.06) 0%, transparent 60%), var(--bg); }
+  .hero-grid { position: absolute; inset: 0; opacity: 0.025; background-image: linear-gradient(var(--text) 1px, transparent 1px), linear-gradient(90deg, var(--text) 1px, transparent 1px); background-size: 80px 80px; }
+  .hero-content { position: relative; z-index: 1; max-width: 860px; }
+  .hero-label { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+  .hero-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .hero-headline { font-family: var(--serif); font-size: clamp(44px, 6vw, 80px); line-height: 1.1; color: var(--text); margin-bottom: 28px; letter-spacing: -0.01em; }
+  .hero-headline em { font-style: italic; color: var(--gold); }
+  .hero-sub { font-size: 18px; line-height: 1.7; color: var(--text2); max-width: 580px; margin-bottom: 44px; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #0C0C0F; padding: 14px 28px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 0.02em; transition: background 0.2s, transform 0.2s; }
+  .hero-cta:hover { background: var(--gold2); transform: translateY(-1px); }
+  .hero-cta svg { transition: transform 0.2s; }
+  .hero-cta:hover svg { transform: translateX(3px); }
+  .hero-scroll { position: absolute; bottom: 36px; right: 48px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); display: flex; align-items: center; gap: 8px; writing-mode: vertical-rl; }
+
+  .cred-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 48px; display: flex; flex-direction: column; gap: 10px; }
+  .cred-row { display: flex; align-items: center; gap: 0; }
+  .cred-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3); white-space: nowrap; min-width: 90px; padding-right: 20px; border-right: 1px solid var(--border2); margin-right: 20px; }
+  .cred-items { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .cred-item { font-size: 12px; font-weight: 500; color: var(--text2); letter-spacing: 0.04em; white-space: nowrap; }
+  .cred-divider { color: var(--border2); }
+  .logo-army { font-size: 9px; font-weight: 700; color: #C49A22; letter-spacing: 2px; text-transform: uppercase; }
+  .logo-nsa { font-size: 11px; font-weight: 700; color: #7BA7C2; letter-spacing: 3px; text-transform: uppercase; }
+  .logo-meta { font-size: 13px; font-weight: 600; color: #4A90D9; letter-spacing: -0.3px; }
+  .logo-stubhub { font-size: 10px; font-weight: 700; color: #CC5500; letter-spacing: 0.2px; }
+  .logo-reuters { font-size: 9px; font-weight: 700; color: #E8830A; letter-spacing: 2px; text-transform: uppercase; }
+  .logo-wired { font-family: var(--serif); font-size: 13px; font-weight: 700; color: #EDE8E0; letter-spacing: 4px; text-transform: uppercase; }
+  .logo-ars { font-size: 10px; font-weight: 400; color: #FF6B1A; font-style: italic; }
+  .logo-npr { font-size: 10px; font-weight: 700; color: #fff; background: #CC1A1A; padding: 2px 6px; border-radius: 2px; letter-spacing: 1px; }
+  .logo-buzzfeed { font-size: 10px; font-weight: 700; color: #EE3322; }
+  .logo-stanford { font-family: var(--serif); font-size: 12px; font-style: italic; color: #D63B4B; }
+
+  section { padding: 100px 48px; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 12px; margin-bottom: 48px; }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+
+  .pov { background: var(--bg); }
+  .pov-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+  .pov-left { position: sticky; top: 120px; }
+  .pov-headline { font-family: var(--serif); font-size: clamp(32px, 4vw, 52px); line-height: 1.15; color: var(--text); margin-bottom: 24px; }
+  .pov-headline em { font-style: italic; color: var(--gold); }
+  .pov-right p { font-size: 17px; line-height: 1.8; color: var(--text2); margin-bottom: 20px; }
+  .pov-right p:last-child { margin-bottom: 0; }
+  .pov-right p strong { color: var(--text); font-weight: 500; }
+  .pov-callout { background: var(--bg3); border-left: 3px solid var(--gold); padding: 20px 24px; margin-top: 28px; border-radius: 0 4px 4px 0; }
+  .pov-callout p { font-size: 15px; color: var(--text2); margin-bottom: 0; font-style: italic; }
+  .pov-callout strong { color: var(--gold); font-style: normal; }
+
+  .work { background: var(--bg2); }
+  .work-featured { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 56px; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .work-featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
+  .work-status { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid rgba(200,169,110,0.25); padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+  .work-status::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+  .work-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .work-title { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); line-height: 1.2; color: var(--text); margin-bottom: 20px; max-width: 680px; }
+  .work-body { font-size: 16px; line-height: 1.8; color: var(--text2); max-width: 720px; margin-bottom: 24px; }
+  .work-methodology { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .method-tag { font-size: 12px; font-weight: 500; color: var(--text3); background: var(--bg2); border: 1px solid var(--border); padding: 4px 12px; border-radius: 100px; }
+  .work-quote { border-left: 2px solid var(--gold); padding-left: 20px; font-size: 14px; font-style: italic; color: var(--text3); max-width: 560px; }
+  .work-quote strong { color: var(--gold); font-style: normal; }
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .work-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 36px; transition: border-color 0.2s; }
+  .work-card:hover { border-color: var(--border2); }
+  .work-card .work-tag { margin-bottom: 16px; }
+  .work-card .work-title { font-size: 22px; margin-bottom: 14px; }
+  .work-card .work-body { font-size: 15px; margin-bottom: 0; }
+  .work-note { font-size: 12px; color: var(--text3); font-style: italic; margin-top: 12px; }
+
+  .research { background: var(--bg); }
+  .research-intro { font-size: 18px; color: var(--text2); max-width: 540px; margin-bottom: 56px; line-height: 1.7; }
+  .research-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .research-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 36px; transition: border-color 0.2s; }
+  .research-card:hover { border-color: var(--border2); }
+  .research-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); background: var(--gold-dim); border: 1px solid rgba(200,169,110,0.2); padding: 4px 10px; border-radius: 100px; margin-bottom: 14px; }
+  .research-type { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3); margin-bottom: 12px; }
+  .research-title { font-family: var(--serif); font-size: 20px; color: var(--text); line-height: 1.3; margin-bottom: 14px; }
+  .research-body { font-size: 14px; color: var(--text2); line-height: 1.75; margin-bottom: 18px; }
+  .research-meta { font-size: 12px; color: var(--text3); padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.65; }
+  .research-meta strong { color: var(--text2); font-weight: 500; }
+
+  .services { background: var(--bg2); }
+  .services-intro { font-size: 18px; color: var(--text2); max-width: 540px; margin-bottom: 64px; line-height: 1.7; }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-bottom: 48px; }
+  .service-card { background: var(--bg3); padding: 40px; transition: background 0.2s; }
+  .service-card:hover { background: #1c1c23; }
+  .service-card:first-child { border-radius: 8px 0 0 8px; }
+  .service-card:last-child { border-radius: 0 8px 8px 0; }
+  .service-for { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .service-title { font-family: var(--serif); font-size: 20px; color: var(--text); margin-bottom: 12px; line-height: 1.3; }
+  .service-body { font-size: 14px; color: var(--text2); line-height: 1.8; margin-bottom: 16px; }
+  .service-brings { font-size: 13px; color: var(--text2); padding-top: 14px; border-top: 1px solid var(--border); line-height: 1.7; }
+  .service-brings strong { color: var(--text); font-weight: 500; }
+  .engagements { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 40px 48px; display: flex; gap: 60px; align-items: start; flex-wrap: wrap; }
+  .eng-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .eng-list { list-style: none; }
+  .eng-list li { font-size: 15px; color: var(--text2); padding: 6px 0; display: flex; align-items: center; gap: 10px; }
+  .eng-list li::before { content: ''; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+  .eng-note { font-size: 14px; color: var(--text3); font-style: italic; margin-top: 20px; }
+
+  .about { background: var(--bg); }
+  .about-layout { display: grid; grid-template-columns: 1fr 1.8fr; gap: 80px; align-items: start; }
+  .about-left { position: sticky; top: 120px; }
+  .about-img-placeholder { width: 100%; aspect-ratio: 3/4; background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--text3); font-size: 13px; letter-spacing: 0.05em; }
+  .about-headline { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 44px); line-height: 1.2; color: var(--text); margin-bottom: 32px; }
+  .about-headline em { font-style: italic; color: var(--gold); }
+  .about-body p { font-size: 16px; line-height: 1.85; color: var(--text2); margin-bottom: 18px; }
+  .about-body p:last-child { margin-bottom: 0; }
+  .about-creds { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+  .cred-pill { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--text2); background: var(--bg2); border: 1px solid var(--border); padding: 6px 14px; border-radius: 100px; }
+
+  .media-section { background: var(--bg2); }
+  .media-list { display: flex; flex-direction: column; }
+  .media-item { display: grid; grid-template-columns: 130px 1fr auto; gap: 24px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--border); text-decoration: none; cursor: pointer; }
+  .media-item:first-child { border-top: 1px solid var(--border); }
+  .media-item:hover .media-headline { color: var(--gold); }
+  .media-outlet { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.3; }
+  .media-headline { font-size: 15px; color: var(--text2); line-height: 1.5; transition: color 0.2s; }
+  .media-date { font-size: 12px; color: var(--text3); white-space: nowrap; }
+
+  .contact { background: var(--bg); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .contact-headline { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 46px); line-height: 1.2; color: var(--text); margin-bottom: 24px; }
+  .contact-headline em { font-style: italic; color: var(--gold); }
+  .contact-body { font-size: 16px; color: var(--text2); line-height: 1.8; margin-bottom: 24px; }
+  .contact-note { font-size: 13px; color: var(--text3); line-height: 1.75; border-left: 2px solid var(--border); padding-left: 16px; }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+  .form-field label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); }
+  .form-field input, .form-field select, .form-field textarea { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 12px 16px; border-radius: 4px; font-family: var(--sans); font-size: 15px; outline: none; transition: border-color 0.2s; width: 100%; resize: vertical; }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--gold); }
+  .form-field select { appearance: none; cursor: pointer; }
+  .form-field textarea { min-height: 120px; }
+  .form-submit { background: var(--gold); color: #0C0C0F; border: none; padding: 14px 28px; border-radius: 4px; font-family: var(--sans); font-size: 15px; font-weight: 600; cursor: pointer; letter-spacing: 0.02em; transition: background 0.2s, transform 0.15s; align-self: flex-start; }
+  .form-submit:hover { background: var(--gold2); transform: translateY(-1px); }
+
+  footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-name { font-family: var(--serif); font-size: 18px; color: var(--text); }
+  .footer-meta { font-size: 12px; color: var(--text3); margin-top: 4px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 13px; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text3); }
+
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+  .stagger > * { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .stagger.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
+  .stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.08s; }
+  .stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.16s; }
+  .stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.24s; }
+  .stagger.visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.32s; }
+  .stagger.visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.40s; }
+
+  @media (max-width: 1200px) {
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .service-card:first-child { border-radius: 8px 8px 0 0; }
+    .service-card:nth-child(2) { border-radius: 0 8px 0 0; }
+    .service-card:nth-child(3) { border-radius: 0 0 0 8px; }
+    .service-card:last-child { border-radius: 0 0 8px 0; }
+  }
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    .hero { padding: 0 24px 64px; }
+    .cred-bar { padding: 14px 24px; gap: 8px; }
+    .cred-label { min-width: 76px; font-size: 9px; }
+    .pov-layout, .about-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .pov-left, .about-left { position: static; }
+    .work-grid, .research-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-radius: 0 !important; }
+    .service-card:first-child { border-radius: 8px 8px 0 0 !important; }
+    .service-card:last-child { border-radius: 0 0 8px 8px !important; }
+    .work-featured { padding: 32px; }
+    .media-item { grid-template-columns: 90px 1fr; }
+    .media-date { display: none; }
+    footer { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-name">Sandeep Abraham</div>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#research">Research</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#media">Press</a>
+    <a href="https://www.linkedin.com/in/sandeep-abraham" target="_blank" class="nav-linkedin" aria-label="LinkedIn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </a>
+    <a href="#contact" class="nav-cta">Let's talk</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-label">Digital Threat Strategist</div>
+    <h1 class="hero-headline">
+      The networks behind<br>
+      digital harm don't<br>
+      <em>announce themselves.</em>
+    </h1>
+    <p class="hero-sub">
+      I've spent 12 years finding them — in crypto markets, on social platforms, across borders, and in the dark web. I help law firms, regulators, technology companies, and government clients understand what's actually happening and what to do about it.
+    </p>
+    <a href="#contact" class="hero-cta">
+      Let's talk about your case
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<div class="cred-bar">
+  <div class="cred-row">
+    <div class="cred-label">Formerly</div>
+    <div class="cred-items" style="gap:28px;">
+      <img src="logos/army.png" alt="U.S. Army" height="22" style="vertical-align:middle;opacity:0.75;filter:brightness(1.1);">
+      <img src="logos/NSA.png" alt="NSA" height="20" style="vertical-align:middle;opacity:0.75;filter:brightness(1.1);">
+      <img src="logos/meta.svg" alt="Meta" height="18" style="vertical-align:middle;opacity:0.8;">
+      <img src="logos/stubhub.svg" alt="StubHub" height="16" style="vertical-align:middle;opacity:0.8;">
+      <img src="logos/ebay.svg" alt="eBay" height="20" style="vertical-align:middle;opacity:0.8;">
+    </div>
+  </div>
+  <div class="cred-row">
+    <div class="cred-label">Featured in</div>
+    <div class="cred-items" style="gap:28px;">
+      <img src="logos/reuters.svg" alt="Reuters" height="18" style="vertical-align:middle;opacity:0.8;">
+      <img src="logos/wired.svg" alt="WIRED" height="16" style="vertical-align:middle;opacity:0.8;">
+      <img src="logos/arstechnica.svg" alt="Ars Technica" height="18" style="vertical-align:middle;opacity:0.8;">
+      <img src="logos/NPR.png" alt="NPR" height="18" style="vertical-align:middle;opacity:0.8;filter:brightness(1.2);">
+      <img src="logos/buzzfeed.svg" alt="BuzzFeed News" height="16" style="vertical-align:middle;opacity:0.8;">
+      <img src="logos/stanfordlaw.svg" alt="Stanford" height="18" style="vertical-align:middle;opacity:0.8;filter:brightness(1.1);">
+    </div>
+  </div>
+</div>
+
+<section class="pov" id="pov">
+  <div class="pov-layout">
+    <div class="pov-left fade-up">
+      <div class="section-label">The landscape</div>
+      <h2 class="pov-headline">
+        Regulatory blind spots<br>aren't accidents.<br>
+        <em>They're being<br>weaponized.</em>
+      </h2>
+    </div>
+    <div class="pov-right">
+      <p class="fade-up">A Chinese crime syndicate registered shell companies in Colorado for $50, fraudulently enrolled as a SEC investment adviser with a nonexistent officer, and used those credentials to launder tens of millions from U.S. victims. Every step exploited a known, documented regulatory gap — from the Treasury's suspension of the Corporate Transparency Act to the SEC's lack of identity verification for registered advisers. The regulators knew. They chose not to fix it.</p>
+      <p class="fade-up">This is the defining pattern of digital harm right now: adversaries don't need to outmaneuver defenses. They read the policy documents, find where enforcement stops, and build their operations in that exact space. AI-generated deepfakes, WhatsApp social engineering, cross-jurisdictional shell networks, fraudulent regulatory registrations — none of this is technically sophisticated. It's institutionally sophisticated. It's regulatory arbitrage at industrial scale.</p>
+      <p class="fade-up">The same playbooks running in crypto fraud are running against AI platforms, election information ecosystems, and the legal systems that are supposed to provide redress. The threat actors have generalized. <strong>The defenses mostly haven't.</strong></p>
+      <div class="pov-callout fade-up">
+        <p><strong>Most advisors understand policy or engineering. I understand the adversary.</strong> My work bridges the gap between what regulatory frameworks say and what sophisticated actors actually do inside those gaps — because I've spent months living inside those operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="section-label fade-up">Selected work</div>
+
+  <div class="work-featured fade-up">
+    <div class="work-tag">Platform Intelligence · Encrypted Environments · Attribution · Financial Crime</div>
+    <h3 class="work-title">First-of-its-kind attribution of organized pig-butchering syndicates operating inside encrypted messaging platforms.</h3>
+    <p class="work-body">At Meta, I designed and led WhatsApp's first Trust & Safety Investigations program — building the methodology from scratch for behavioral attribution and syndicate mapping in encrypted environments where traditional signals don't exist. The central challenge: WhatsApp's end-to-end encryption means message content is invisible. What remains are metadata patterns, account behaviors, and network relationships. Using SQL-based behavioral analysis, OSINT, and digital forensics applied to those signals, I achieved the first documented attribution of organized pig-butchering fraud syndicates operating at scale on WhatsApp — producing findings that led to law enforcement referrals and the platform's first coordinated financial crime enforcement actions. The investigation also pioneered frameworks for distinguishing organized criminal network behavior from organic user activity inside an encrypted environment — methodology that has since informed how major platforms approach financial crime at scale.</p>
+    <div class="work-methodology">
+      <span class="method-tag">Behavioral attribution</span>
+      <span class="method-tag">Encrypted environment forensics</span>
+      <span class="method-tag">SQL network analysis</span>
+      <span class="method-tag">OSINT</span>
+      <span class="method-tag">Syndicate mapping</span>
+      <span class="method-tag">Law enforcement referrals</span>
+    </div>
+    <div class="work-quote">
+      <strong>Meta / WhatsApp</strong> — First-of-its-kind investigative methodology<br>
+      Findings referenced in Reuters (Nov 2025) and public DSA systemic risk assessment filings.
+    </div>
+  </div>
+
+  <div class="work-grid stagger">
+    <div class="work-card">
+      <div class="work-tag">Behavioral Intelligence · Election Security · Mass Atrocity Risk</div>
+      <h3 class="work-title">Forecasting election violence from platform behavioral signals.</h3>
+      <p class="work-body">I developed risk forecasting frameworks for 15+ high-risk elections at Meta, identifying behavioral precursors to mass atrocity events in Ethiopia, Afghanistan, and India from platform activity patterns. This work — detecting coordinated network behaviors that correlate with off-platform violence — improved detection model accuracy by 60% and directly informed Meta's first EU DSA systemic risk assessment.</p>
+      <p class="work-note">Referenced in Meta Newsroom's 2021 Ethiopia update and public DSA filings.</p>
+    </div>
+    <div class="work-card">
+      <div class="work-tag">AI Disinformation · Investigative Journalism · Platform Accountability</div>
+      <h3 class="work-title">How a local newspaper's website became an AI-generated clickbait factory.</h3>
+      <p class="work-body">An investigation into how a small Iowa newspaper's website was hijacked and converted into an AI-generated clickbait and disinformation engine — one of the first documented cases of AI-generated content systematically replacing local journalism at scale. The findings were published in WIRED and contributed to broader reporting on AI content farms exploiting local news infrastructure.</p>
+      <p class="work-note"><a href="https://www.wired.com/story/iowa-newspaper-website-ai-generated-clickbait-factory/" target="_blank" style="color:var(--gold);text-decoration:none;">WIRED, February 2024 ↗</a></p>
+    </div>
+    <div class="work-card">
+      <div class="work-tag">AI Systems · Red Team · Content Moderation Policy</div>
+      <h3 class="work-title">Finding the gaps in AI platforms before the bad actors do.</h3>
+      <p class="work-body">I red teamed Synthesia's AI avatar content moderation system — conducting intelligence collection across 10 cybercrime forums, 7 mainstream platforms, and 5 alternative social networks to map how malicious actors perceive and exploit AI-generated video technology. The findings surfaced scam and abuse vectors the existing system wasn't catching and drove direct product policy and safety upgrades.</p>
+    </div>
+  </div>
+</section>
+
+<section class="research" id="research">
+  <div class="section-label fade-up">Research & policy work</div>
+  <p class="research-intro fade-up">Alongside investigative work, I research the governance frameworks that determine whether AI and digital systems cause harm or prevent it — and where the gaps between those frameworks and adversarial reality actually live.</p>
+  <div class="research-grid stagger">
+    <div class="research-card">
+      <div class="research-type">Academic Paper · Stanford INTLPOL 245B</div>
+      <h3 class="research-title">No Free Lunches: How the Global South Can Govern Open-Source AI</h3>
+      <p class="research-body">Examines legal mechanisms available to low-capacity states in Africa and Latin America to govern open-source foundation models including LLaMA, DeepSeek, and Mistral. Analyzes the African Union Continental AI Strategy, Brazil's AI Bill, and Kenya's AI Code of Practice against Global North licensing and sovereignty constraints.</p>
+      <div class="research-meta" style="margin-bottom:14px;"><strong>Stanford University</strong> · International Policy Program · 2025<br>27 pages, primary source-based.</div>
+      <a href="/no-free-lunches.pdf" target="_blank" style="font-size:12px; color:var(--gold); text-decoration:none; display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(200,169,110,0.3); padding:5px 12px; border-radius:4px;">Download PDF ↗</a>
+    </div>
+    <div class="research-card">
+      <div class="research-type">Policy Research · GIZ-Commissioned</div>
+      <h3 class="research-title">Accelerating Open Source AI in India</h3>
+      <p class="research-body">Co-authored policy research examining compute infrastructure barriers, digital sovereignty, and open source AI adoption in India. Proposes national compute scaling and goal-based government allocation. Based on expert interviews with government officials, AI practitioners, and civil society across India.</p>
+      <div class="research-meta" style="margin-bottom:14px;"><strong>Digital Futures Lab / GIZ (Germany)</strong> · 2025<br>Supervised by Francis Fukuyama and Erik Jensen, Stanford University. Co-authored with Kevin Klyman et al. Research contributed to DFL's February 2026 institutional brief.</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="https://drive.google.com/file/d/1sKsUFIHEOTdJ3lnc1n5DL-acPA-KY5_6/view?usp=sharing" target="_blank" style="font-size:12px; color:var(--gold); text-decoration:none; display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(200,169,110,0.3); padding:5px 12px; border-radius:4px;">Team report ↗</a>
+        <a href="https://www.digitalfutureslab.in/publications/advancing-open-source-ai-in-india-recommendations-for-governments-and-technology-developers" target="_blank" style="font-size:12px; color:var(--text3); text-decoration:none; display:inline-flex; align-items:center; gap:6px; border:1px solid var(--border); padding:5px 12px; border-radius:4px;">DFL final brief ↗</a>
+      </div>
+    </div>
+    <div class="research-card">
+      <div class="research-type">Policy Lab Report · Stanford Law</div>
+      <h3 class="research-title">Dissociation from Companies Engaged in Misleading Communications</h3>
+      <p class="research-body">A Stanford Law and Policy Lab report examining when universities and institutions should dissociate from fossil fuel companies based on their disinformation conduct. Developed from recommendations by Stanford's Committee on Funding for Energy Research, supervised by Paul Brest and Noah Diffenbaugh.</p>
+      <div class="research-meta" style="margin-bottom:14px;"><strong>Stanford Law School</strong> · Law and Policy Lab · Spring 2025<br>Co-authored with Eeshan Chaturvedi, Arman Hedayat, Tianyi Huang, Nora Swidey, and Emma Wang.</div>
+      <a href="https://law.stanford.edu/publications/dissociation-from-companies-engaged-in-misleading-communications/" target="_blank" style="font-size:12px; color:var(--gold); text-decoration:none; display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(200,169,110,0.3); padding:5px 12px; border-radius:4px;">Stanford Law ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-label fade-up">How I can help</div>
+  <p class="services-intro fade-up">I work with a small number of clients at a time. Here's where I tend to add the most value.</p>
+  <div class="services-grid fade-up">
+    <div class="service-card">
+      <div class="service-for">For law firms & AG offices</div>
+      <h3 class="service-title">From raw evidence to findings that hold up.</h3>
+      <p class="service-body">You have a complex case involving digital fraud, platform harm, or financial crime. You need someone who can read blockchain transactions, dark web communications, platform data, and OSINT — and translate what it means into terms a court can act on. I've supported federal and state litigation, produced findings that survived adversarial scrutiny, and submitted expert evidence across multiple jurisdictions.</p>
+      <div class="service-brings"><strong>What I bring:</strong> investigative rigor, chain-of-custody discipline, Mandarin-language capability, and the ability to explain technical findings to non-technical decision-makers.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-for">For crypto exchanges & fintechs</div>
+      <h3 class="service-title">Strategy and execution for the threats you can't outrun.</h3>
+      <p class="service-body">You're building or scaling a fraud and financial crime function, or you've got a specific threat you can't get ahead of. I help you think through strategy, evaluate detection gaps, run targeted investigations, or serve as fractional leadership. I've built these programs from scratch at StubHub and Meta, and scaled them across billions of users.</p>
+      <div class="service-brings"><strong>What I bring:</strong> 12+ years of program-building, hands-on blockchain analytics, AML/CFT expertise, and firsthand knowledge of how transnational crypto fraud operations are actually structured.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-for">For enterprises & AI companies</div>
+      <h3 class="service-title">When the threat is your own platform.</h3>
+      <p class="service-body">Trust and safety failures compound quietly until they're front-page news or regulatory action. I help enterprises identify fraud and abuse vectors before adversaries exploit them, and help AI companies stress-test their systems against the real-world manipulation tactics I've documented from cybercrime forums, dark web communities, and adversarial actor networks.</p>
+      <div class="service-brings"><strong>What I bring:</strong> direct red team experience against live AI systems, behavioral intelligence from Meta-scale operations, and governance advisory grounded in Stanford policy research.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-for">For government & regulatory bodies</div>
+      <h3 class="service-title">Bridging policy and adversarial reality.</h3>
+      <p class="service-body">Regulations are written about threats that existed when drafting started. Adversaries operate in the gaps between what the policy says and what enforcement actually reaches. I work with agencies, international bodies, and policy organizations to map those gaps and document how they're being exploited — with the receipts to prove it.</p>
+      <div class="service-brings"><strong>What I bring:</strong> firsthand intelligence on how regulatory arbitrage is systematically weaponized, cross-jurisdictional investigative experience, and AI governance research applicable to regulatory design.</div>
+    </div>
+  </div>
+  <div class="engagements fade-up">
+    <div>
+      <div class="eng-label">Engagements I take</div>
+      <ul class="eng-list">
+        <li>Consulting on specific investigations or cases</li>
+        <li>Retained advisory (ongoing strategic access)</li>
+        <li>Fractional leadership (interim fraud strategy or T&S)</li>
+        <li>Expert review and litigation support</li>
+        <li>Red team and adversarial assessment</li>
+        <li>Policy advisory and regulatory framework development</li>
+      </ul>
+      <p class="eng-note">I don't do volume. I work on cases that matter.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="section-label fade-up">About</div>
+  <div class="about-layout">
+    <div class="about-left fade-up">
+      <div class="about-img-placeholder">[ headshot ]</div>
+    </div>
+    <div class="about-right">
+      <h2 class="about-headline fade-up">
+        I work at the intersection of<br>adversarial intelligence<br>and <em>digital governance.</em>
+      </h2>
+      <div class="about-body">
+        <p class="fade-up">I'm a digital threat strategist and investigator based in the San Francisco Bay Area. I work at the intersection of adversarial intelligence and digital governance — finding the hidden networks behind large-scale harm and producing findings that drive legal, regulatory, and operational responses.</p>
+        <p class="fade-up">Before going independent, I spent five years as an NSA signals intelligence analyst supporting the Indo-Pacific Command's highest-priority missions — the kind of work that teaches you how adversarial networks actually think. From there: building StubHub's fraud intelligence program from scratch at eBay; designing WhatsApp's first Trust & Safety Investigations program at Meta and scaling financial crime work across Facebook, Instagram, and WhatsApp; and most recently building the fraud forensic investigations function at SoFi.</p>
+        <p class="fade-up">In 2023 I co-founded Risky Business Solutions, an investigative and advisory practice focused on AI-driven deception, crypto financial crime, and platform abuse. My clients include national law firms, state Attorney General offices, technology companies, and development organizations working the intersection of technical evidence and legal strategy.</p>
+        <p class="fade-up">I hold a Master of International Policy from Stanford University, where I also hold an Investigative Fellowship at the Starling Lab and have contributed to AI governance policy research supervised by Francis Fukuyama. I'm a 100% service-connected disabled veteran — and I bring the same orientation to this work that I learned in uniform.</p>
+        <p class="fade-up">When I'm not working, I'm in Fremont with my wife and daughter, probably arguing about the best banh mi in the East Bay.</p>
+      </div>
+      <div class="about-creds stagger">
+        <span class="cred-pill">Starling Lab Fellow, Stanford</span>
+        <span class="cred-pill">Stanford M.A. International Policy</span>
+        <span class="cred-pill">CFE — Certified Fraud Examiner</span>
+        <span class="cred-pill">CAMS — AML Specialist</span>
+        <span class="cred-pill">U.S. Army Veteran</span>
+        <span class="cred-pill">TS/SCI (former)</span>
+        <span class="cred-pill">Chainalysis Certified</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="media-section" id="media">
+  <div class="section-label fade-up">Press & media</div>
+  <div class="media-list stagger">
+    <a class="media-item" href="https://www.reuters.com/investigations/meta-is-earning-fortune-deluge-fraudulent-ads-documents-show-2025-11-06/" target="_blank">
+      <div class="media-outlet" style="color:#E8830A;">Reuters</div>
+      <div class="media-headline">Meta is earning a fortune on a deluge of fraudulent ads, documents show ↗</div>
+      <div class="media-date">Nov 2025</div>
+    </a>
+    <a class="media-item" href="https://arstechnica.com/tech-policy/2025/11/bombshell-report-exposes-how-meta-relied-on-scam-ad-profits-to-fund-ai/" target="_blank">
+      <div class="media-outlet" style="color:#FF6B1A;">Ars Technica</div>
+      <div class="media-headline">Bombshell report exposes how Meta relied on scam ad profits to fund AI ↗</div>
+      <div class="media-date">Nov 2025</div>
+    </a>
+    <a class="media-item" href="https://www.wbur.org/onpoint/2025/11/18/scam-ads-online-social-media" target="_blank">
+      <div class="media-outlet" style="color:#CC1A1A;">NPR · On Point</div>
+      <div class="media-headline">Why are scam ads everywhere online? ↗</div>
+      <div class="media-date">Nov 2025</div>
+    </a>
+    <a class="media-item" href="https://www.the-independent.com/tech/meta-ads-scam-facebook-instagram-zuckerberg-b2860980.html" target="_blank">
+      <div class="media-outlet" style="color:#D4313A;">The Independent</div>
+      <div class="media-headline">Meta makes millions from scam ads as internal documents reveal scale of problem ↗</div>
+      <div class="media-date">Nov 2025</div>
+    </a>
+    <a class="media-item" href="https://www.wired.com/story/iowa-newspaper-website-ai-generated-clickbait-factory/" target="_blank">
+      <div class="media-outlet" style="color:#EDE8E0; letter-spacing:0.18em;">WIRED</div>
+      <div class="media-headline">How a Small Iowa Newspaper's Website Became an AI-Generated Clickbait Factory ↗</div>
+      <div class="media-date">Feb 2024</div>
+    </a>
+    <a class="media-item" href="https://www.unit21.ai/risky-business/san-francisco" target="_blank">
+      <div class="media-outlet" style="color:#8B7FFF;">Unit21<br>Risky Business</div>
+      <div class="media-headline">FinCrime Ops Tour — San Francisco · Featured Speaker ↗</div>
+      <div class="media-date">Oct 2025</div>
+    </a>
+    <a class="media-item" href="https://integrityinstitute.org/blog/unleashing-the-potential-of-generative-ai-in-integrity-trust-amp-safety-work-opportunities-challenges-and-solutions" target="_blank">
+      <div class="media-outlet" style="color:#C8A96E;">Integrity Institute</div>
+      <div class="media-headline">Unleashing the Potential of Generative AI in Integrity, Trust & Safety Work ↗</div>
+      <div class="media-date">Jun 2023</div>
+    </a>
+    <a class="media-item" href="https://www.buzzfeednews.com/article/ryanmac/full-facebook-stop-the-steal-internal-report" target="_blank">
+      <div class="media-outlet" style="color:#EE3322;">BuzzFeed News</div>
+      <div class="media-headline">Stop the Steal and Patriot Party: The Growth and Mitigation of an Adversarial Harmful Movement ↗</div>
+      <div class="media-date">Apr 2021</div>
+    </a>
+    <a class="media-item" href="https://open.spotify.com/episode/1JIAtQwn9SX1NdR5fO8pHC" target="_blank">
+      <div class="media-outlet" style="color:#7BA7C2;">CyberWire</div>
+      <div class="media-headline">StubHub Leverages Empathy and Emotional Intelligence for Threat Hunting ↗</div>
+      <div class="media-date">Apr 2019</div>
+    </a>
+  </div>
+</section>
+
+<section style="background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:56px 48px;">
+  <div style="max-width:640px;margin:0 auto;text-align:center;">
+    <div class="section-label" style="justify-content:center;margin-bottom:20px;">Dispatches</div>
+    <h3 style="font-family:var(--serif);font-size:clamp(22px,3vw,32px);color:var(--text);margin-bottom:14px;line-height:1.2;">Occasional writing on digital harm,<br>AI governance, and adversarial intelligence.</h3>
+    <p style="font-size:15px;color:var(--text2);margin-bottom:28px;line-height:1.7;">Not a newsletter in the traditional sense — more like dispatches when there's something worth saying. Investigation updates, policy analysis, field notes.</p>
+    <form onsubmit="handleSub(event)" style="display:flex;gap:10px;max-width:460px;margin:0 auto;">
+      <input type="email" id="sub-email" placeholder="your@email.com" required style="flex:1;background:var(--bg2);border:1px solid var(--border2);color:var(--text);padding:12px 16px;border-radius:4px;font-family:var(--sans);font-size:15px;outline:none;">
+      <button type="submit" style="background:var(--gold);color:#0C0C0F;border:none;padding:12px 22px;border-radius:4px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;">Subscribe</button>
+    </form>
+    <p id="sub-confirm" style="display:none;font-size:13px;color:var(--gold);margin-top:14px;">Got it — you'll hear from me when there's something worth reading.</p>
+    <p style="font-size:12px;color:var(--text3);margin-top:16px;">No spam. No cadence. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-layout">
+    <div class="contact-left">
+      <div class="section-label fade-up">Work with me</div>
+      <h2 class="contact-headline fade-up">
+        If you're dealing with<br>digital harm —<br>
+        <em>let's talk.</em>
+      </h2>
+      <p class="contact-body fade-up">I take a small number of engagements at a time. The best way to start is a short conversation about what you're working on. I'll tell you quickly whether I'm the right fit, and if I'm not, I'll try to point you in the right direction.</p>
+      <div class="contact-note fade-up">
+        For law firms and AG offices: privileged communications handled appropriately.<br><br>
+        For fintech and crypto companies: open to retained advisory and select fractional engagements.<br><br>
+        For enterprises and AI companies: trust and safety strategy, red team engagements, fraud program buildouts.<br><br>
+        For government and regulatory bodies: policy advisory, framework development, and investigative briefings.
+      </div>
+    </div>
+    <div class="contact-right fade-up">
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-field">
+          <label>Name</label>
+          <input type="text" placeholder="Your name">
+        </div>
+        <div class="form-field">
+          <label>Organization</label>
+          <input type="text" placeholder="Firm, company, or agency">
+        </div>
+        <div class="form-field">
+          <label>I'm reaching out as</label>
+          <select>
+            <option value="">Select one</option>
+            <option>A law firm or AG office</option>
+            <option>A crypto exchange or fintech</option>
+            <option>A large enterprise</option>
+            <option>An AI company</option>
+            <option>A government or regulatory body</option>
+            <option>Media / press inquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>What are you working on?</label>
+          <textarea placeholder="Brief description of your situation or case — no sensitive details needed at this stage."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-name">Sandeep Abraham</div>
+    <div class="footer-meta">CFE · CAMS · Stanford M.A. · Starling Lab Fellow · U.S. Army Veteran · Bay Area, CA</div>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/sandeep-abraham" target="_blank">LinkedIn</a>
+    <a href="#contact">Contact</a>
+    <a href="https://riskybusiness.solutions" target="_blank">Risky Business Solutions</a>
+  </div>
+  <div class="footer-copy">© 2026 Sandeep Abraham · Risky Business Solutions LLC</div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  function handleSub(e) {
+    e.preventDefault();
+    document.getElementById('sub-confirm').style.display = 'block';
+    document.getElementById('sub-email').value = '';
+    // Replace the action URL below with your Beehiiv or Ghost signup endpoint
+    // e.g. fetch('https://app.beehiiv.com/subscribe', { method:'POST', body:... })
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+        observer.unobserve(el.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up, .stagger').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
