@@ -28,8 +28,19 @@
   .nav-links a:hover { color: var(--text); }
   .nav-cta { background: var(--gold-dim); border: 1px solid rgba(200,169,110,0.3); color: var(--gold) !important; padding: 8px 18px; border-radius: 4px; }
   .nav-cta:hover { background: rgba(200,169,110,0.2) !important; }
-  .nav-linkedin { color: var(--text3); transition: color 0.2s; display: flex; align-items: center; }
-  .nav-linkedin:hover { color: var(--gold) !important; }
+  .nav-linkedin { color: #0A66C2; transition: color 0.2s; display: flex; align-items: center; }
+  .nav-links a.nav-linkedin { color: #0A66C2; }
+  .nav-links a.nav-linkedin:hover { color: #4A9FFF !important; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text2); transition: all 0.25s; border-radius: 2px; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 61px; left: 0; right: 0; background: rgba(12,12,15,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 24px 32px; flex-direction: column; gap: 4px; z-index: 99; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--text2); text-decoration: none; font-size: 16px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid var(--border); letter-spacing: 0.02em; transition: color 0.2s; }
+  .mobile-menu a:last-child { border-bottom: none; color: var(--gold); }
+  .mobile-menu a:hover { color: var(--text); }
 
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 100px 48px 80px; position: relative; overflow: hidden; }
   @media (orientation: portrait) and (max-width: 900px) { .hero { justify-content: center; padding-top: 110px; } }
@@ -199,8 +210,9 @@
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     section { padding: 72px 24px; }
-    .hero { padding: 0 24px 64px; }
+    .hero { padding: 100px 24px 64px; justify-content: center; }
     .cred-bar { padding: 14px 24px; gap: 8px; }
     .cred-label { min-width: 76px; font-size: 9px; }
     .pov-layout, .about-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -236,7 +248,20 @@
     </a>
     <a href="#contact" class="nav-cta">Let's talk</a>
   </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work" onclick="closeMobile()">Work</a>
+  <a href="#research" onclick="closeMobile()">Research</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#media" onclick="closeMobile()">Press</a>
+  <a href="https://www.linkedin.com/in/sandeep-abraham" target="_blank">LinkedIn ↗</a>
+  <a href="#contact" onclick="closeMobile()">Let's talk →</a>
+</div>
 
 <section class="hero" id="home">
   <div class="hero-bg"></div>
@@ -592,6 +617,17 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
   });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
 
   function handleSub(e) {
     e.preventDefault();
