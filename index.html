@@ -43,12 +43,12 @@
   .mobile-menu a:hover { color: var(--text); }
 
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 100px 48px 40px; position: relative; overflow: hidden; }
-  @media (orientation: portrait) and (max-width: 900px) { .hero { justify-content: center; padding-top: 90px; } }
+  @media (orientation: portrait) and (max-width: 900px) { .hero { justify-content: center; padding-top: 110px; } }
   .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(200,169,110,0.04) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 60%, rgba(80,60,120,0.06) 0%, transparent 60%), var(--bg); }
   .hero-grid { position: absolute; inset: 0; opacity: 0.025; background-image: linear-gradient(var(--text) 1px, transparent 1px), linear-gradient(90deg, var(--text) 1px, transparent 1px); background-size: 80px 80px; }
   .hero-content { position: relative; z-index: 1; max-width: 860px; }
   .hero-label { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
-  .hero-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+  .hero-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
   .hero-headline { font-family: var(--serif); font-size: clamp(44px, 6vw, 80px); line-height: 1.1; color: var(--text); margin-bottom: 28px; letter-spacing: -0.01em; }
   .hero-headline em { font-style: italic; color: var(--gold); }
   .hero-sub { font-size: 18px; line-height: 1.7; color: var(--text2); max-width: 580px; margin-bottom: 44px; }
@@ -290,7 +290,7 @@
   <div class="hero-scroll">Scroll</div>
 </section>
 
-<div style="border-bottom:1px solid var(--border);padding:32px 48px;display:flex;align-items:center;gap:28px;">
+<div style="border-bottom:1px solid var(--border);padding:20px 48px;display:flex;align-items:center;gap:28px;">
   <img src="headshot.jpg" alt="Sandeep Abraham" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--border);flex-shrink:0;">
   <div>
     <div style="font-family:var(--serif);font-size:17px;color:var(--text);margin-bottom:2px;">Sandeep Abraham</div>
@@ -332,12 +332,8 @@
       </h2>
     </div>
     <div class="pov-right">
-      <p class="fade-up">A Chinese crime syndicate registered shell companies in Colorado for $50, fraudulently enrolled as a SEC investment adviser with a nonexistent officer, and used those credentials to launder tens of millions from U.S. victims. Every step exploited a known, documented regulatory gap — from the Treasury's suspension of the Corporate Transparency Act to the SEC's lack of identity verification for registered advisers. The regulators knew. They chose not to fix it.</p>
-      <p class="fade-up">This is the defining pattern of digital harm right now: adversaries don't need to outmaneuver defenses. They read the policy documents, find where enforcement stops, and build their operations in that exact space. AI-generated deepfakes, WhatsApp social engineering, cross-jurisdictional shell networks, fraudulent regulatory registrations — none of this is technically sophisticated. It's institutionally sophisticated. It's regulatory arbitrage at industrial scale.</p>
-      <p class="fade-up">The same playbooks running in crypto fraud are running against AI platforms, election information ecosystems, and the legal systems that are supposed to provide redress. The threat actors have generalized. <strong>The defenses mostly haven't.</strong></p>
-      <div class="pov-callout fade-up">
-        <p><strong>Most advisors understand policy or engineering. I understand the adversary.</strong> My work bridges the gap between what regulatory frameworks say and what sophisticated actors actually do inside those gaps — because I've spent months living inside those operations.</p>
-      </div>
+      <p class="fade-up">A Chinese crime syndicate registered shell companies in Colorado for $50, enrolled fraudulently as an SEC investment adviser, and laundered tens of millions from U.S. victims. Every step exploited a documented regulatory gap. The regulators knew. They chose not to fix it.</p>
+      <p class="fade-up">This is the pattern. Adversaries don't outmaneuver defenses — they read the policy documents, find where enforcement stops, and build there. AI deepfakes, encrypted social engineering, shell networks, fraudulent registrations: none of it is technically sophisticated. It's institutionally sophisticated. The threat actors have generalized. The defenses mostly haven't.</p>
     </div>
   </div>
 </section>
@@ -349,7 +345,7 @@
     <div class="work-card">
       <div class="work-tag">Platform Intelligence · Encrypted Environments · Attribution</div>
       <h3 class="work-title">First-of-its-kind attribution of pig-butchering syndicates inside encrypted messaging platforms.</h3>
-      <p class="work-body">At Meta, I designed WhatsApp's first Trust & Safety Investigations program — building behavioral attribution and syndicate mapping methodology from scratch in an environment where message content is invisible. Using metadata patterns, SQL network analysis, OSINT, and digital forensics, I achieved the first documented attribution of organized pig-butchering syndicates operating at scale on WhatsApp, producing findings that led to law enforcement referrals and the platform's first coordinated financial crime enforcement actions.</p>
+      <p class="work-body">Designed WhatsApp's first Trust & Safety Investigations program — building behavioral attribution and syndicate mapping methodology from scratch in an environment where message content is invisible. Achieved the first documented attribution of organized pig-butchering syndicates operating at scale on WhatsApp, producing findings that drove law enforcement referrals and the platform's first coordinated financial crime enforcement actions.</p>
       <p class="work-note">Meta / WhatsApp · First-of-its-kind investigative methodology</p>
     </div>
     <div class="work-card">
@@ -361,13 +357,13 @@
     <div class="work-card">
       <div class="work-tag">AI Disinformation · Investigative Journalism · Platform Accountability</div>
       <h3 class="work-title">How a local newspaper's website became an AI-generated clickbait factory.</h3>
-      <p class="work-body">An investigation into how a small Iowa newspaper's website was hijacked and converted into an AI-generated disinformation engine — one of the first documented cases of AI-generated content systematically replacing local journalism at scale. The findings were published in WIRED and contributed to broader reporting on AI content farms exploiting local news infrastructure.</p>
+      <p class="work-body">A small Iowa newspaper's website was hijacked and rebuilt as an AI-generated disinformation engine — one of the first documented cases of AI content systematically replacing local journalism at scale. I investigated the operation; findings published in WIRED.</p>
       <p class="work-note"><a href="https://www.wired.com/story/iowa-newspaper-website-ai-generated-clickbait-factory/" target="_blank" style="color:var(--gold);text-decoration:none;">WIRED, February 2024 ↗</a></p>
     </div>
     <div class="work-card">
       <div class="work-tag">AI Systems · Red Team · Content Moderation Policy</div>
       <h3 class="work-title">Finding the gaps in AI platforms before the bad actors do.</h3>
-      <p class="work-body">I red teamed Synthesia's AI avatar content moderation system — conducting intelligence collection across 10 cybercrime forums, 7 mainstream platforms, and 5 alternative social networks to map how malicious actors perceive and exploit AI-generated video technology. The findings surfaced abuse vectors the existing system wasn't catching and drove direct product policy and safety upgrades.</p>
+      <p class="work-body">Red teamed Synthesia's AI avatar content moderation system — mapping how malicious actors across 10 cybercrime forums and 12 platforms perceive and exploit AI-generated video. Surfaced abuse vectors the system wasn't catching and drove direct policy and safety upgrades.</p>
       <p class="work-note"><a href="https://www.synthesia.io/post/navigating-the-complexities-of-content-moderation" target="_blank" style="color:var(--gold);text-decoration:none;">Synthesia, August 2024 ↗</a></p>
     </div>
   </div>
@@ -380,14 +376,14 @@
     <div class="research-card">
       <div class="research-type">Academic Paper · Stanford INTLPOL 245B</div>
       <h3 class="research-title">No Free Lunches: How the Global South Can Govern Open-Source AI</h3>
-      <p class="research-body">Examines legal mechanisms available to low-capacity states in Africa and Latin America to govern open-source foundation models including LLaMA, DeepSeek, and Mistral. Analyzes the African Union Continental AI Strategy, Brazil's AI Bill, and Kenya's AI Code of Practice against Global North licensing and sovereignty constraints.</p>
+      <p class="research-body">What legal tools do low-capacity states actually have to govern open-source models like LLaMA, DeepSeek, and Mistral? Examines the AU Continental AI Strategy, Brazil's AI Bill, and Kenya's AI Code of Practice against the hard constraints of Global North licensing.</p>
       <div class="research-meta" style="margin-bottom:14px;"><strong>Stanford University</strong> · International Policy Program · 2025<br>27 pages, primary source-based.</div>
       <a href="/no-free-lunches.pdf" target="_blank" style="font-size:12px; color:var(--gold); text-decoration:none; display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(200,169,110,0.3); padding:5px 12px; border-radius:4px;">Download PDF ↗</a>
     </div>
     <div class="research-card">
       <div class="research-type">Policy Research · GIZ-Commissioned</div>
       <h3 class="research-title">Accelerating Open Source AI in India</h3>
-      <p class="research-body">Co-authored policy research examining compute infrastructure barriers, digital sovereignty, and open source AI adoption in India. Proposes national compute scaling and goal-based government allocation. Based on expert interviews with government officials, AI practitioners, and civil society across India.</p>
+      <p class="research-body">GIZ-commissioned policy research on compute infrastructure barriers, digital sovereignty, and open source AI adoption in India — proposing national compute scaling and goal-based government allocation, based on expert interviews across government, practitioners, and civil society.</p>
       <div class="research-meta" style="margin-bottom:14px;"><strong>Digital Futures Lab / GIZ (Germany)</strong> · 2025<br>Supervised by Francis Fukuyama and Erik Jensen, Stanford University. Co-authored with Kevin Klyman et al. Research contributed to DFL's February 2026 institutional brief.</div>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a href="https://drive.google.com/file/d/1sKsUFIHEOTdJ3lnc1n5DL-acPA-KY5_6/view?usp=sharing" target="_blank" style="font-size:12px; color:var(--gold); text-decoration:none; display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(200,169,110,0.3); padding:5px 12px; border-radius:4px;">Team report ↗</a>
@@ -397,7 +393,7 @@
     <div class="research-card">
       <div class="research-type">Policy Lab Report · Stanford Law</div>
       <h3 class="research-title">Dissociation from Companies Engaged in Misleading Communications</h3>
-      <p class="research-body">A Stanford Law and Policy Lab report examining when universities and institutions should dissociate from fossil fuel companies based on their disinformation conduct. Developed from recommendations by Stanford's Committee on Funding for Energy Research, supervised by Paul Brest and Noah Diffenbaugh.</p>
+      <p class="research-body">Stanford Law and Policy Lab report on when universities should dissociate from fossil fuel companies based on disinformation conduct — developed from Stanford's Committee on Funding for Energy Research, supervised by Paul Brest and Noah Diffenbaugh.</p>
       <div class="research-meta" style="margin-bottom:14px;"><strong>Stanford Law School</strong> · Law and Policy Lab · Spring 2025<br>Co-authored with Eeshan Chaturvedi, Arman Hedayat, Tianyi Huang, Nora Swidey, and Emma Wang.</div>
       <a href="https://law.stanford.edu/publications/dissociation-from-companies-engaged-in-misleading-communications/" target="_blank" style="font-size:12px; color:var(--gold); text-decoration:none; display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(200,169,110,0.3); padding:5px 12px; border-radius:4px;">Stanford Law ↗</a>
     </div>
@@ -411,26 +407,26 @@
     <div class="service-card">
       <div class="service-for">For law firms & AG offices</div>
       <h3 class="service-title">From raw evidence to findings that hold up.</h3>
-      <p class="service-body">You have a complex case involving digital fraud, platform harm, or financial crime. You need someone who can read blockchain transactions, dark web communications, platform data, and OSINT — and translate what it means into terms a court can act on. I've supported federal and state litigation, produced findings that survived adversarial scrutiny, and submitted expert evidence across multiple jurisdictions.</p>
-      <div class="service-brings"><strong>What I bring:</strong> investigative rigor, chain-of-custody discipline, Mandarin-language capability, and the ability to explain technical findings to non-technical decision-makers.</div>
+      <p class="service-body">Complex cases involving digital fraud, platform harm, or financial crime. I read blockchain transactions, dark web communications, platform data, and OSINT — and translate findings into terms a court can act on. I've supported federal and state litigation and submitted expert evidence across multiple jurisdictions.</p>
+      <div class="service-brings"><strong>What I bring:</strong> investigative rigor, chain-of-custody discipline, Mandarin-language capability, technical findings made legible to non-technical decision-makers.</div>
     </div>
     <div class="service-card">
       <div class="service-for">For crypto exchanges & fintechs</div>
       <h3 class="service-title">Strategy and execution for the threats you can't outrun.</h3>
-      <p class="service-body">You're building or scaling a fraud and financial crime function, or you've got a specific threat you can't get ahead of. I help you think through strategy, evaluate detection gaps, run targeted investigations, or serve as fractional leadership. I've built these programs from scratch at StubHub and Meta, and scaled them across billions of users.</p>
-      <div class="service-brings"><strong>What I bring:</strong> 12+ years of program-building, hands-on blockchain analytics, AML/CFT expertise, and firsthand knowledge of how transnational crypto fraud operations are actually structured.</div>
+      <p class="service-body">Building or scaling a fraud and financial crime function. Specific threat you can't get ahead of. I evaluate detection gaps, run targeted investigations, and serve as fractional leadership when needed. I've built these programs from scratch at StubHub and Meta and scaled them across billions of users.</p>
+      <div class="service-brings"><strong>What I bring:</strong> 12+ years of program-building, hands-on blockchain analytics, AML/CFT expertise, firsthand knowledge of how transnational crypto fraud operations are actually structured.</div>
     </div>
     <div class="service-card">
       <div class="service-for">For enterprises & AI companies</div>
       <h3 class="service-title">When the threat is your own platform.</h3>
-      <p class="service-body">Trust and safety failures compound quietly until they're front-page news or regulatory action. I help enterprises identify fraud and abuse vectors before adversaries exploit them, and help AI companies stress-test their systems against the real-world manipulation tactics I've documented from cybercrime forums, dark web communities, and adversarial actor networks.</p>
-      <div class="service-brings"><strong>What I bring:</strong> direct red team experience against live AI systems, behavioral intelligence from Meta-scale operations, and governance advisory grounded in Stanford policy research.</div>
+      <p class="service-body">Trust and safety failures compound quietly until they're front-page news. I help enterprises find fraud and abuse vectors before adversaries do, and stress-test AI systems against real-world manipulation tactics I've documented from cybercrime forums and adversarial networks.</p>
+      <div class="service-brings"><strong>What I bring:</strong> red team experience against live AI systems, behavioral intelligence from Meta-scale operations, governance advisory grounded in Stanford policy research.</div>
     </div>
     <div class="service-card">
       <div class="service-for">For government & regulatory bodies</div>
       <h3 class="service-title">Bridging policy and adversarial reality.</h3>
-      <p class="service-body">Regulations are written about threats that existed when drafting started. Adversaries operate in the gaps between what the policy says and what enforcement actually reaches. I work with agencies, international bodies, and policy organizations to map those gaps and document how they're being exploited — with the receipts to prove it.</p>
-      <div class="service-brings"><strong>What I bring:</strong> firsthand intelligence on how regulatory arbitrage is systematically weaponized, cross-jurisdictional investigative experience, and AI governance research applicable to regulatory design.</div>
+      <p class="service-body">Regulations are written about threats that existed when drafting started. I work with agencies and policy organizations to map where enforcement stops, document how those gaps are being exploited, and build frameworks that reflect how adversaries actually operate.</p>
+      <div class="service-brings"><strong>What I bring:</strong> firsthand intelligence on regulatory arbitrage being systematically weaponized, cross-jurisdictional investigative experience, AI governance research applicable to regulatory design.</div>
     </div>
   </div>
   <div class="engagements fade-up">
@@ -460,9 +456,8 @@
         I work where<br>adversarial intelligence<br>and <em>digital governance</em> collide.
       </h2>
       <div class="about-body">
-        <p class="fade-up">I'm a digital threat strategist and investigator based in the San Francisco Bay Area. I work where adversarial intelligence and digital governance collide — finding the hidden networks behind large-scale harm and producing findings that drive legal, regulatory, and operational responses.</p>
-        <p class="fade-up">Before going independent, I spent five years as an NSA technical linguist hunting Pacific Command's highest-priority targets — where silence was an adversarial network's only refuge. From there: building StubHub's fraud intelligence program from scratch at eBay; designing WhatsApp's first Trust & Safety Investigations program at Meta and scaling financial crime response across Facebook, Instagram, and WhatsApp; and most recently building the proactive fraud hunting function at SoFi.</p>
-        <!-- <p class="fade-up">In 2023 I co-founded <a href="https://www.riskybusiness.solutions" target="_blank" style="color:var(--gold);text-decoration:none;">Risky Business Solutions</a> with Tony Eastin, a former Meta colleague and fellow veteran, building an investigative and advisory practice focused on AI-driven deception, crypto financial crime, and platform abuse. Our clients include national law firms, state Attorney General offices, technology companies, and development organizations working the intersection of technical evidence and legal strategy.</p> -->
+        <p class="fade-up">I'm a digital threat strategist in the San Francisco Bay Area — finding the hidden networks behind digital harm and producing findings that drive legal, regulatory, and operational responses.</p>
+        <p class="fade-up">Before going independent, I spent five years as an NSA technical linguist hunting Pacific Command's highest-priority targets — where silence was an adversary's only refuge. From there: architecting StubHub's fraud intelligence program at eBay; designing WhatsApp's first Trust & Safety Investigations program and leading crisis response at Meta; and most recently building the fraud hunting function at SoFi.</p>
         <p class="fade-up">I hold a Master of International Policy from Stanford University, where I also hold a Journalism Fellowship at the Starling Lab for Data Integrity and have contributed to AI policy research under Francis Fukuyama. I'm a service-disabled Army veteran — and I bring the same tenacity to this work that I had in uniform.</p>
         <p class="fade-up">When I'm not working, I'm in Fremont with my wife and daughter, probably hunting down the best boba in the Bay.</p>
       </div>
@@ -487,7 +482,7 @@
     </div>
     <div class="fade-up">
       <div class="section-label" style="margin-bottom:20px;">The firm</div>
-      <p style="font-size:17px;line-height:1.8;color:var(--text2);margin-bottom:16px;">Tony Eastin and I founded <a href="https://www.riskybusiness.solutions" target="_blank" style="color:var(--gold);text-decoration:none;">Risky Business Solutions</a> after spending years hunting influence operations and dismantling fraud networks inside the world's largest tech platforms — and before that, doing it for U.S. military and intelligence agencies.</p>
+      <p style="font-size:17px;line-height:1.8;color:var(--text2);margin-bottom:16px;"><a href="https://www.linkedin.com/in/ajeastin/" target="_blank" style="color:var(--gold);text-decoration:none;">Tony Eastin</a> and I founded <a href="https://www.riskybusiness.solutions" target="_blank" style="color:var(--gold);text-decoration:none;">Risky Business Solutions</a> in 2023 after spending years hunting influence operations and dismantling fraud networks inside the world's largest tech platforms — and before that, doing it for U.S. military and intelligence agencies.</p>
       <p style="font-size:17px;line-height:1.8;color:var(--text2);margin-bottom:16px;">The firm focuses on AI-driven deception, crypto financial crime, and platform abuse — serving national law firms, state Attorney General offices, technology companies, and development organizations that need the kind of investigative rigor and risk frameworks that used to be reserved for the biggest budgets. <strong style="color:var(--text);font-weight:500;">We make them accessible to the organizations that need them most.</strong></p>
       <p style="font-size:14px;color:var(--text3);line-height:1.7;"><a href="https://www.riskybusiness.solutions" target="_blank" style="color:var(--gold);text-decoration:none;">riskybusiness.solutions ↗</a></p>
     </div>
