@@ -25,7 +25,7 @@
   .nav-identity { display: flex; align-items: center; gap: 12px; text-decoration: none; }
   .nav-avatar { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border2); flex-shrink: 0; }
   .nav-name { font-family: var(--serif); font-size: 17px; color: var(--text); letter-spacing: 0.01em; }
-  .nav-title { font-size: 12px; color: var(--text3); font-weight: 400; letter-spacing: 0.02em; }
+  .nav-title { font-size: 12px; color: var(--text3); font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; }
   .nav-links { display: flex; gap: 28px; align-items: center; }
   .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
@@ -130,6 +130,9 @@
   .service-body { font-size: 14px; color: var(--text2); line-height: 1.8; margin-bottom: 16px; }
   .service-brings { font-size: 13px; color: var(--text2); padding-top: 14px; border-top: 1px solid var(--border); line-height: 1.7; }
   .service-brings strong { color: var(--text); font-weight: 500; }
+  .service-list { list-style: none; margin: 0 0 16px 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .service-list li { font-size: 14px; color: var(--text2); line-height: 1.6; display: flex; align-items: flex-start; gap: 10px; }
+  .service-list li::before { content: ''; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
   .engagements { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 40px 48px; display: flex; gap: 60px; align-items: start; flex-wrap: wrap; }
   .eng-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
   .eng-list { list-style: none; }
@@ -203,6 +206,7 @@
   }
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
+    .nav-title, .nav-sep { display: none; }
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
     section { padding: 72px 24px; }
@@ -236,9 +240,9 @@
     </div>
   </a>
   <div class="nav-links">
+    <a href="#services">Services</a>
     <a href="#work">Work</a>
     <a href="#research">Research</a>
-    <a href="#services">Services</a>
     <a href="#about">About</a>
     <a href="#rbs">My Business</a>
     <a href="#media">Press</a>
@@ -257,9 +261,9 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#work" onclick="closeMobile()">Work</a>
   <a href="#research" onclick="closeMobile()">Research</a>
-  <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#rbs" onclick="closeMobile()">My Business</a>
   <a href="#media" onclick="closeMobile()">Press</a>
@@ -341,6 +345,75 @@
   </div>
 </section>
 
+<section class="services" id="services">
+  <div class="section-label fade-up">How I can help</div>
+  <p class="services-intro fade-up">I work with a small number of clients at a time. Here's where I tend to add the most value.</p>
+  <div class="services-grid fade-up">
+    <div class="service-card">
+      <div class="service-for">For law firms & legal institutions</div>
+      <h3 class="service-title">From raw evidence to findings that hold up.</h3>
+      <ul class="service-list">
+        <li>Digital fraud, platform harm, and financial crime investigations</li>
+        <li>Blockchain transaction analysis and tracing</li>
+        <li>Dark web intelligence and OSINT</li>
+        <li>Expert evidence across federal, state, and international jurisdictions</li>
+        <li>Technical findings translated for courts and non-technical decision-makers</li>
+      </ul>
+      <div class="service-brings"><strong>What I bring:</strong> investigative rigor, chain-of-custody discipline, Mandarin-language capability, technical findings made legible to non-technical decision-makers.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-for">For fintechs, exchanges, DeFi & DAOs</div>
+      <h3 class="service-title">Strategy and execution for the threats you can't outrun.</h3>
+      <ul class="service-list">
+        <li>Fraud and financial crime program buildouts from scratch</li>
+        <li>Detection gap evaluation and threat assessments</li>
+        <li>Targeted investigations into specific threat actors or patterns</li>
+        <li>Fractional leadership for fraud strategy and AML functions</li>
+        <li>AML/CFT compliance strategy and crypto forensics</li>
+      </ul>
+      <div class="service-brings"><strong>What I bring:</strong> 12+ years of program-building, hands-on blockchain analytics, AML/CFT expertise, firsthand knowledge of how transnational crypto fraud operations are actually structured.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-for">For digital platforms & AI companies</div>
+      <h3 class="service-title">When the threat is your own ecosystem.</h3>
+      <ul class="service-list">
+        <li>Trust and safety strategy and program design</li>
+        <li>AI system red teaming against real-world adversarial tactics</li>
+        <li>Fraud and abuse vector identification before exploitation</li>
+        <li>Intelligence collection from cybercrime forums and adversarial networks</li>
+        <li>Content moderation policy advisory</li>
+      </ul>
+      <div class="service-brings"><strong>What I bring:</strong> red team experience against live AI systems, behavioral intelligence from Meta-scale operations, governance advisory grounded in Stanford policy research.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-for">For government & policy makers</div>
+      <h3 class="service-title">Bridging policy and adversarial reality.</h3>
+      <ul class="service-list">
+        <li>Regulatory gap mapping and enforcement blind spot analysis</li>
+        <li>Investigative briefings with documented evidence</li>
+        <li>AI governance framework development</li>
+        <li>Cross-jurisdictional threat intelligence</li>
+        <li>Policy advisory for oversight bodies, advocacy groups, and agencies</li>
+      </ul>
+      <div class="service-brings"><strong>What I bring:</strong> firsthand intelligence on regulatory arbitrage being systematically weaponized, cross-jurisdictional investigative experience, AI governance research applicable to regulatory design.</div>
+    </div>
+  </div>
+  <div class="engagements fade-up">
+    <div>
+      <div class="eng-label">Engagements I take</div>
+      <ul class="eng-list">
+        <li>Consulting on specific investigations or cases</li>
+        <li>Retained advisory (ongoing strategic access)</li>
+        <li>Fractional leadership (interim fraud strategy or T&S)</li>
+        <li>Expert review and litigation support</li>
+        <li>Red team and adversarial assessment</li>
+        <li>Policy advisory and regulatory framework development</li>
+      </ul>
+      <p class="eng-note">I don't do volume. I work on cases that matter.</p>
+    </div>
+  </div>
+</section>
+
 <section class="work" id="work">
   <div class="section-label fade-up">Selected work</div>
 
@@ -399,51 +472,6 @@
       <p class="research-body">Stanford Law and Policy Lab report on when universities should dissociate from fossil fuel companies based on disinformation conduct — developed from Stanford's Committee on Funding for Energy Research, supervised by Paul Brest and Noah Diffenbaugh.</p>
       <div class="research-meta" style="margin-bottom:14px;"><strong>Stanford Law School</strong> · Law and Policy Lab · Spring 2025<br>Co-authored with Eeshan Chaturvedi, Arman Hedayat, Tianyi Huang, Nora Swidey, and Emma Wang.</div>
       <a href="https://law.stanford.edu/publications/dissociation-from-companies-engaged-in-misleading-communications/" target="_blank" style="font-size:12px; color:var(--gold); text-decoration:none; display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(200,169,110,0.3); padding:5px 12px; border-radius:4px;">Stanford Law ↗</a>
-    </div>
-  </div>
-</section>
-
-<section class="services" id="services">
-  <div class="section-label fade-up">How I can help</div>
-  <p class="services-intro fade-up">I work with a small number of clients at a time. Here's where I tend to add the most value.</p>
-  <div class="services-grid fade-up">
-    <div class="service-card">
-      <div class="service-for">For law firms & legal institutions</div>
-      <h3 class="service-title">From raw evidence to findings that hold up.</h3>
-      <p class="service-body">Complex cases involving digital fraud, platform harm, or financial crime. I read blockchain transactions, dark web communications, platform data, and OSINT — and translate findings into terms a court can act on. I've supported federal and state litigation and submitted expert evidence across multiple jurisdictions.</p>
-      <div class="service-brings"><strong>What I bring:</strong> investigative rigor, chain-of-custody discipline, Mandarin-language capability, technical findings made legible to non-technical decision-makers.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-for">For fintechs, exchanges, DeFi & DAOs</div>
-      <h3 class="service-title">Strategy and execution for the threats you can't outrun.</h3>
-      <p class="service-body">Building or scaling a fraud and financial crime function. Specific threat you can't get ahead of. I evaluate detection gaps, run targeted investigations, and serve as fractional leadership when needed. I've built these programs from scratch at StubHub and Meta and scaled them across billions of users.</p>
-      <div class="service-brings"><strong>What I bring:</strong> 12+ years of program-building, hands-on blockchain analytics, AML/CFT expertise, firsthand knowledge of how transnational crypto fraud operations are actually structured.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-for">For digital platforms & AI companies</div>
-      <h3 class="service-title">When the threat is your own ecosystem.</h3>
-      <p class="service-body">Trust and safety failures compound quietly until they're front-page news. I help enterprises find fraud and abuse vectors before adversaries do, and stress-test AI systems against real-world manipulation tactics I've documented from cybercrime forums and adversarial networks.</p>
-      <div class="service-brings"><strong>What I bring:</strong> red team experience against live AI systems, behavioral intelligence from Meta-scale operations, governance advisory grounded in Stanford policy research.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-for">For government & policy makers</div>
-      <h3 class="service-title">Bridging policy and adversarial reality.</h3>
-      <p class="service-body">Regulations are written about threats that existed when drafting started. I work with agencies and policy organizations to map where enforcement stops, document how those gaps are being exploited, and build frameworks that reflect how adversaries actually operate.</p>
-      <div class="service-brings"><strong>What I bring:</strong> firsthand intelligence on regulatory arbitrage being systematically weaponized, cross-jurisdictional investigative experience, AI governance research applicable to regulatory design.</div>
-    </div>
-  </div>
-  <div class="engagements fade-up">
-    <div>
-      <div class="eng-label">Engagements I take</div>
-      <ul class="eng-list">
-        <li>Consulting on specific investigations or cases</li>
-        <li>Retained advisory (ongoing strategic access)</li>
-        <li>Fractional leadership (interim fraud strategy or T&S)</li>
-        <li>Expert review and litigation support</li>
-        <li>Red team and adversarial assessment</li>
-        <li>Policy advisory and regulatory framework development</li>
-      </ul>
-      <p class="eng-note">I don't do volume. I work on cases that matter.</p>
     </div>
   </div>
 </section>
